@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name='viewport' content='width=device-width,initial-scale=1.0,user-scalable=no'>
+    <meta name="renderer" content="webkit">
+    <title>问题反馈</title>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+</head>
+<style>
+    @font-face {
+        font-family: 'iconfont';  /* project id 403369 */
+        src: url('//at.alicdn.com/t/font_403369_uk5q6yusdrcqh0k9.eot');
+        src: url('//at.alicdn.com/t/font_403369_uk5q6yusdrcqh0k9.eot?#iefix') format('embedded-opentype'),
+        url('//at.alicdn.com/t/font_403369_uk5q6yusdrcqh0k9.woff') format('woff'),
+        url('//at.alicdn.com/t/font_403369_uk5q6yusdrcqh0k9.ttf') format('truetype'),
+        url('//at.alicdn.com/t/font_403369_uk5q6yusdrcqh0k9.svg#iconfont') format('svg');
+    }
+
+    .icon {
+        font-family: 'iconfont';
+        font-style: normal;
+    }
+
+    .icon.del:before {
+        content: '\e61e';
+    }
+
+    .icon.camera:before {
+        content: '\e605';
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background: #f5f5f5;
+        font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    }
+
+    .feedText textarea {
+        outline: none;
+        width: 100%;
+        box-sizing: border-box;
+        height: 245px;
+        border: none;
+        padding: 15px;
+        resize: none;
+        color: #999999;
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+    .feedBtn {
+        padding: 0 15px;
+    }
+
+    .feedBtn .btn-submit {
+        width: 100%;
+        background: #1498fc;
+        color: #ffffff;
+        text-align: center;
+        line-height: 45px;
+        height: 45px;
+        border-radius: 5px;
+    }
+
+    .feedImg {
+        margin: 15px 0;
+        padding: 0 15px;
+        display: flex;
+    }
+
+    .feedImg .thumbnail {
+        margin-right: 10px;
+        position: relative;
+    }
+
+    .feedImg .thumbnail i {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: #f2453b;
+        color: #ffffff;
+        width: 22px;
+        height: 22px;
+        line-height: 22px;
+        text-align: center;
+        border-radius: 50%;
+        font-size: 12px;
+    }
+
+    .feedImg .thumbnail img {
+        width: 75px;
+        height: 75px;
+    }
+
+    .feedImg .add-img {
+        width: 75px;
+        height: 75px;
+        border: 1px dashed #cccccc;
+    }
+
+    .feedImg .add-img i {
+        display: block;
+        text-align: center;
+        line-height: 75px;
+        font-size: 30px;
+        color: #cccccc
+    }
+
+    .toast {
+        position: fixed;
+        left: 50%;
+        bottom: 10%;
+        transform: translate(-50%, 0);
+        padding: 10px 20px;
+        background: rgba(0, 0, 0, .8);
+        font-size: 12px;
+        color: #ffffff;
+        opacity: 0;
+        transition: opacity .3s linear;
+    }
+
+    .toast.active {
+        opacity: 1;
+        transition: opacity .3s linear;
+    }
+</style>
+<body>
+<div id="feedback" class="feedback">
+    <section class="feedText">
+        <textarea id="feedbackContent" placeholder="请写下您在使用找冻品网时遇到的问题，您的每一次反馈都是我们前进的动力！"></textarea>
+    </section>
+    <section class="feedImg" id="feedImg">
+        <div id="addImg" onclick="uploadImg();" class="add-img"><i class="icon camera"></i></div>
+    </section>
+    <section class="feedBtn">
+        <div class="btn-submit" onclick="submit();">确认提交</div>
+    </section>
+</div>
+</body>
+</html>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+    (function () {
+        document.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+        }, false);
+
+        weSign(['chooseImage', 'previewImage', 'uploadImage', 'downloadImage', 'getLocalImgData']);
+    })();
+
+
+    var localIds = [],
+        serverIds = [];
+
+    // 确认提交
+    function submit() {
+        var content = document.getElementById('feedbackContent');
+
+        if (content.length <= 5) {
+            createToast('反馈内容过于少。');
+            return;
+        }
+
+        if(content.length > 150) {
+            createToast('反馈内容过多，请修改。');
+            return;
+        }
+
+        let xhr = new XMLHttpRequest() ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == 4 && xmr.status == 200) {
+                // 这个时候已经结束了
+                createToast('我们已经收到的您的反馈。');
+            }
+        };
+        xhr.open("post", '/feedback/user_feedback', true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send("msg_type=2&content=" + content + '&imgs=' + serverIds);
+    }
+
+    // 上传图片
+    function uploadImg() {
+        var currentLength = document.getElementsByClassName('thumbnail').length,
+            count = 0;
+
+        if (currentLength == 0) {
+            count = 2;
+        } else if (currentLength == 1) {
+            count = 1;
+        } else {
+            count = 0;
+        }
+
+        wx.chooseImage({
+            count: count,
+            success: function (res) {
+                localIds = res.localIds;
+                var i = 0;
+                (function (i) {
+                    for (i = 0; i < localIds.length; i++) {
+                        wx.uploadImage({
+                            localId: localIds[i],
+                            success: function (res) {
+                                serverIds.push({"img_url": res.serverId});
+                            }
+                        })
+                    }
+                })(i);
+                createUploadedImg();
+            }
+        });
+
+    }
+
+    // 删除已上传的图片
+    function delUploadedImg(obj) {
+        // 1、去掉DOM
+        // 2、pop出去
+        var id = obj.parentNode.children[1].src;
+
+        // 去掉DOM
+        document.getElementById('feedImg').removeChild(obj.parentNode);
+
+        // pop出去
+        for (var i = 0; i < serverIds.length; i++) {
+            if (serverIds[i].img_url == id) {
+                serverIds.splice(i, 1);
+            }
+        }
+
+        if (document.getElementsByClassName('thumbnail').length < 2) {
+            document.getElementById('addImg').style.display = 'block';
+        }
+    }
+
+    // 创建已上传图片的DOM
+    function createUploadedImg() {
+
+        if (localIds.length > 0) {
+            for (var i = 0; i < localIds.length; i++) {
+                var thumbnail = document.createElement('div');
+                thumbnail.className = 'thumbnail';
+                thumbnail.innerHTML = '<i class="icon del" onclick="delUploadedImg(this)"></i><img src="' + localIds[i] + '"></div>';
+
+                document.getElementById('feedImg').insertBefore(thumbnail, document.getElementById('addImg'));
+            }
+        }
+
+        if (document.getElementsByClassName('thumbnail').length >= 2) {
+            document.getElementById('addImg').style.display = 'none';
+        }
+    }
+
+    // 配置微信信息
+    function weSign(apiList, fn) {
+        $.ajax({
+            type: 'POST',
+            url: 'index.php?m=FrontPublic&c=WeSdk&a=js_sdk_signature',
+            data: 'signPageUrl=' + encodeURIComponent(location.href),
+            success: function (msg) {
+                var signData = JSON.parse(msg);
+                var signInfo = signData.signPackage,
+                    wx_config = {
+                        debug: false,
+                        appId: signInfo.appId,
+                        timestamp: signInfo.timestamp,
+                        nonceStr: signInfo.nonceStr,
+                        signature: signInfo.signature,
+                        jsApiList: apiList
+                    };
+                wx.config(wx_config);
+                wx.ready(function () {
+                    fn && fn();
+                });
+            }
+        });
+    }
+
+    function createToast(text) {
+        if (document.getElementById('toast')) {
+            return;
+        }
+
+        var toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.setAttribute('id', 'toast');
+
+        toast.innerHTML = text;
+
+        document.getElementById('register').appendChild(toast);
+
+        setTimeout(function () {
+            toast.className = 'toast active';
+
+            setTimeout(function () {
+                toast.className = 'toast';
+
+                setTimeout(function () {
+                    document.getElementById('register').removeChild(toast);
+                }, 300);
+            }, 1800);
+        }, 100);
+    }
+</script>

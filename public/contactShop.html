@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name='viewport' content='width=device-width,initial-scale=1.0,user-scalable=no'>
+    <meta name="renderer" content="webkit">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-rim-auto-match" content="none">
+    <title>联系店铺</title>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <style rel="stylesheet">
+        @font-face {
+            font-family: 'iconfont';  /* project id 240714 */
+            src: url('//at.alicdn.com/t/font_le1vl3ymcvfpf1or.eot');
+            src: url('//at.alicdn.com/t/font_le1vl3ymcvfpf1or.eot?#iefix') format('embedded-opentype'),
+            url('//at.alicdn.com/t/font_le1vl3ymcvfpf1or.woff') format('woff'),
+            url('//at.alicdn.com/t/font_le1vl3ymcvfpf1or.ttf') format('truetype'),
+            url('//at.alicdn.com/t/font_le1vl3ymcvfpf1or.svg#iconfont') format('svg');
+        }
+
+        *{  margin: 0; padding: 0;  }
+        body{  background: #f5f5f5;  }
+        h3{  font-size: 15px;  font-weight: normal;  }
+
+        i{  font-style: normal;  display: inline-block;  }
+        .icon {  font-family: 'iconfont'; color: #b5b5b5 }
+        .icon.shop:before {content: '\e665';}
+        .icon.call:before {content: '\e8b1';}
+
+
+        .buyer-shop-info {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+        }
+        .buyer-shop-info .scroll{
+            position: absolute;
+            z-index: 2;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            width: 100%;
+            -webkit-transform: translateZ(0);
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            -o-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-text-size-adjust: none;
+            -moz-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            -o-text-size-adjust: none;
+            text-size-adjust: none;
+        }
+        .buyer-shop-info .shop-img{
+            width: 100%;
+            height: 187px;
+            position: relative;
+        }
+        .buyer-shop-info .shop-img img{
+            width: 100%;
+            height: 100%;
+        }
+        .buyer-shop-info .shop-img p{
+            position: absolute;
+            bottom: 20px;
+            left: 15px;
+            color: #ffffff;
+            font-size: 15px;
+            z-index: 555;
+        }
+        .buyer-shop-info .shop-img .box-shadow{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 -40px 50px #383838 inset;
+        }
+        .buyer-shop-info .ul-title{
+            height: 44px;
+            padding: 0 15px;
+            line-height: 44px;
+            font-size: 13px;
+            color: #b6b6b6;
+        }
+
+        .buyer-shop-info .buyer-shop-info-intro{
+            padding: 15px;
+            font-size: 13px;
+            color: #5d5f6a;
+            line-height: 20px;
+        }
+
+        .buyer-shop-info .buyer-shop-info-ul {
+            margin-top: 8px;
+        }
+        .buyer-shop-info .buyer-shop-info-ul i{
+            margin-right: 15px;
+        }
+        .buyer-shop-info .buyer-contact {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 999;
+        }
+        .buyer-shop-info .buyer-contact .contact-btn{
+            background: none;
+            text-decoration: none;
+            outline: none;
+            min-width: 88px;
+            box-sizing: border-box;
+            padding: 0 18px;
+            height: 50px;
+            font-size: 16px;
+            color: #ffffff;
+            width: 100%;
+            background: #f2582a;
+            border: 1px solid #f2582a;
+        }
+        .buyer-shop-info .buyer-contact .contact-btn:active {
+            background: #e3552b;
+        }
+        .buyer-shop-info .buyer-copyright{
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 46px;
+            position: absolute;
+            bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .ul{
+            background: #ffffff;
+            list-style: none;
+        }
+        .ul:not(:last-child){
+            margin-bottom: 10px;
+        }
+        .ul .li{
+            margin: 0 14px;
+            padding: 15px 0;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        .ul .li:not(:last-child):after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            height: 1px;
+            width: 100%;
+            background: #e3e5e9;
+            transform: scaleY(0.5);
+            -webkit-transform: scaleY(0.5);
+            -moz-transform: scaleY(0.5);
+            -ms-transform: scaleY(0.5);
+            -o-transform: scaleY(0.5);
+        }
+
+        .grid-row {
+            width: 100%;
+            overflow: hidden;
+        }
+        .grid-row>* {
+            float: left;
+        }
+        .grid-col-8 {
+            width: 66.67%;
+        }
+        .grid-col-4 {
+            width: 33.33%;
+        }
+        @media only screen and (max-width: 350px) {
+            .grid-col-sm-7 {
+                width: 58.33%;
+            }
+            .grid-col-sm-5 {
+                width: 41.67%;
+            }
+        }
+    </style>
+</head>
+<body onload="createScroll();">
+<div id="buyerShopInfo" class="buyer-shop-info">
+    <div class="scroll">
+        <div class="shop-img" id="shopImg">
+            <img id="shopBigImg" src="http://img.dongpin.me/default/nopic.png">
+            <div class="box-shadow"></div>
+            <p id="shopName"></p>
+        </div>
+        <div class="ul-title">店铺联系方式</div>
+        <div class="ul buyer-shop-info-ul">
+            <div class="li">
+                <div class="grid-row">
+                    <div class="grid-col-12">
+                        <h3 class="text-muted"><i class="icon shop"></i><span id="shopAddress"></span></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="li">
+                <div class="grid-row">
+                    <div class="grid-col-12">
+                        <h3 class="text-muted"><i class="icon call"></i><span id="shopMobile"></span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ul-title">店铺介绍</div>
+        <div class="ul buyer-shop-info-intro" id="shopIntro">暂无店铺介绍</div>
+        <div class="ul-title">配送说明</div>
+        <div class="ul buyer-shop-info-intro" id="shopDelivery">暂无配送说明</div>
+        <div style="width: 100%; height: 50px"></div>
+    </div>
+    <div class="buyer-contact"><button type="button" id="contactBtn" class="contact-btn" onclick="contactShop();">联系店铺</button></div>
+</div>
+<script src="//cdn.bootcss.com/iScroll/5.2.0/iscroll.min.js"></script>
+<script>
+    /**
+     * Created by H5 on 2017.03.10.
+     */
+    var mobile = 0;
+    var SCROLL;
+
+    (function () {
+        document.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+        }, false);
+        document.getElementById('shopImg').style.height = window.innerWidth/2 + 'px';
+        getShopInfo();
+    })();
+
+    function $(node) {
+        return document.getElementById(node);
+    }
+
+    // 获取店铺的信息
+    function getShopInfo() {
+        ajax('get', '/api/customer/contact', {}, function(res){
+            if(res.code == 0){
+                mobile = res.data.mobile;
+                $('shopName').innerHTML = res.data.shop_name;
+                $('shopAddress').innerHTML = res.data.address;
+                $('shopMobile').innerHTML = res.data.mobile;
+                if(res.data.introduction && res.data.introduction!=''){
+                    $('shopIntro').innerHTML = res.data.introduction;
+                }
+                if(res.data.delivery_remark && res.data.delivery_remark!=''){
+                    $('shopDelivery').innerHTML = res.data.delivery_remark;
+                }
+                if(res.data.avatar && res.data.avatar!=''){
+                    $('shopBigImg').setAttribute('src', 'http://img.dongpin.me/'+res.data.avatar);
+                }
+            }else{
+                alert(res.message);
+            }
+        });
+    }
+
+    // 联系店铺
+    function contactShop() {
+        window.location.href = 'tel:'+mobile;
+    }
+
+    function ajax(method, link, param, callback) {
+        var xhr = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject('Microsoft.XMLHTTP'),
+            url = method == 'post'?link+'?r='+Math.random():link+'?'+buildData(data)+'&r='+Math.random(),
+            type = method?method:'get',
+            data = param || null;
+
+        xhr.open(type, url, true);
+        type=='post'?xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'):null;
+        xhr.setRequestHeader('Cache-Control', 'no-cache');
+        xhr.setRequestHeader('Accept', 'application/json');
+        xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+        xhr.send(type=='post'?buildData(data):'');
+
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                callback(JSON.parse(xhr.responseText));
+            }
+        };
+    }
+
+    // 构建Send的数据结构
+    function buildData(data) {
+        if(data == null) return data;
+
+        var arr = [];
+        for(var key in data){
+            var str = key+'='+data[key];
+            arr.push(str);
+        }
+
+        return arr.join('&');
+    }
+
+    // 创建滑动
+    function createScroll() {
+
+        SCROLL = new IScroll('#buyerShopInfo', {
+            zoom: true,
+            scrollX: false,  //是不中可以横向滚动;
+            scrollY: true,  //是否可以纵向滚动;
+            mouseWheel: true, //是否监听鼠标滚轮;
+            wheelAction: 'zoom',
+            probeType: 2,
+            preventDefault: false
+        });
+
+        SCROLL.on('beforeScrollStart', function() {
+            SCROLL.refresh();
+        });
+    }
+</script>
+</body>
+</html>

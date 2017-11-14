@@ -1,0 +1,74 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>
+Created by FontForge 20120731 at Fri Jun 23 10:58:06 2017
+ By admin
+</metadata>
+<defs>
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face 
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    panose-1="2 0 6 3 0 0 0 0 0 0"
+    ascent="896"
+    descent="-128"
+    x-height="792"
+    bbox="0 -212 982 854"
+    underline-thickness="0"
+    underline-position="0"
+    unicode-range="U+0078-EB48"
+  />
+<missing-glyph 
+ />
+    <glyph glyph-name=".notdef" 
+ />
+    <glyph glyph-name=".notdef" 
+ />
+    <glyph glyph-name=".null" horiz-adv-x="0" 
+ />
+    <glyph glyph-name="nonmarkingreturn" horiz-adv-x="341" 
+ />
+    <glyph glyph-name="x" unicode="x" horiz-adv-x="1001" 
+d="M281 543q-27 -1 -53 -1h-83q-18 0 -36.5 -6t-32.5 -18.5t-23 -32t-9 -45.5v-76h912v41q0 16 -0.5 30t-0.5 18q0 13 -5 29t-17 29.5t-31.5 22.5t-49.5 9h-133v-97h-438v97zM955 310v-52q0 -23 0.5 -52t0.5 -58t-10.5 -47.5t-26 -30t-33 -16t-31.5 -4.5q-14 -1 -29.5 -0.5
+t-29.5 0.5h-32l-45 128h-439l-44 -128h-29h-34q-20 0 -45 1q-25 0 -41 9.5t-25.5 23t-13.5 29.5t-4 30v167h911zM163 247q-12 0 -21 -8.5t-9 -21.5t9 -21.5t21 -8.5q13 0 22 8.5t9 21.5t-9 21.5t-22 8.5zM316 123q-8 -26 -14 -48q-5 -19 -10.5 -37t-7.5 -25t-3 -15t1 -14.5
+t9.5 -10.5t21.5 -4h37h67h81h80h64h36q23 0 34 12t2 38q-5 13 -9.5 30.5t-9.5 34.5q-5 19 -11 39h-368zM336 498v228q0 11 2.5 23t10 21.5t20.5 15.5t34 6h188q31 0 51.5 -14.5t20.5 -52.5v-227h-327z" />
+    <glyph glyph-name="xiangyou" unicode="&#xe600;" 
+d="M399 40l40 -40l365 366l-365 366l-40 -40l326 -326z" />
+    <glyph glyph-name="exit" unicode="&#xe68f;" 
+d="M768 172v128h-320v128h320v128l192 -192zM704 236v-256h-320v-192l-384 192v832h704v-320h-64v256h-512l256 -128v-576h256v192h64z" />
+    <glyph glyph-name="xiangxia" unicode="&#xe611;" 
+d="M531 5l-413 624h829z" />
+    <glyph glyph-name="accountbalancewallet" unicode="&#xea37;" 
+d="M682 320q26 0 45 18t19 46t-19 46t-45 18t-45 -18t-19 -46t19 -46t45 -18zM512 214v340h426v-340h-426zM896 128v-42q0 -34 -26 -60t-60 -26h-596q-36 0 -61 26t-25 60v596q0 34 25 60t61 26h596q34 0 60 -26t26 -60v-42h-384q-36 0 -61 -26t-25 -60v-340q0 -34 25 -60
+t61 -26h384v0z" />
+    <glyph glyph-name="extension" unicode="&#xeb48;" 
+d="M874 426q44 0 76 -31t32 -75t-32 -75t-76 -31h-64v-172q0 -34 -25 -59t-59 -25h-162v64q0 48 -34 81t-82 33t-82 -33t-34 -81v-64h-162q-34 0 -59 25t-25 59v162h64q48 0 81 34t33 82t-33 82t-81 34h-64v162q0 34 25 59t59 25h172v64q0 44 31 76t75 32t75 -32t31 -76v-64
+h172q34 0 59 -25t25 -59v-172h64z" />
+    <glyph glyph-name="accountlocation" unicode="&#xe60c;" 
+d="M768 213h-512v39q0 30 27.5 56t68.5 42t83.5 25t76.5 9t76.5 -9t83.5 -25t68.5 -42t27.5 -56v-39zM512 670q48 0 81.5 -33.5t33.5 -81.5t-33.5 -82t-81.5 -34t-81.5 34t-33.5 82t33.5 81.5t81.5 33.5zM811 811h-598q-35 0 -60 -25t-25 -61v-597q0 -35 25 -60t60 -25h171
+l128 -128l128 128h171q35 0 60 25t25 60v597q0 36 -25 61t-60 25z" />
+    <glyph glyph-name="magnify" unicode="&#xe93b;" 
+d="M405 768q115 0 196.5 -81t81.5 -196q0 -103 -67 -181l12 -11h33l214 -214l-64 -64l-214 214v33l-11 12q-78 -67 -181 -67q-115 0 -196 81.5t-81 196.5t81 196t196 81zM405 683q-80 0 -136 -56t-56 -136t56 -136t136 -56t136 56t56 136t-56 136t-136 56z" />
+    <glyph glyph-name="chilun" unicode="&#xe609;" 
+d="M842 341q3 25 3 43t-3 43l94 74q14 11 5 28l-89 154q-10 16 -27 9l-111 -44q-35 27 -75 44l-16 117q-2 8 -8 13.5t-14 5.5h-178q-8 0 -14 -5.5t-8 -13.5l-16 -117q-41 -17 -75 -44l-111 44q-18 7 -27 -9l-89 -154q-9 -16 5 -28l94 -74q-3 -25 -3 -43t3 -43l-94 -74
+q-14 -11 -5 -28l89 -154q10 -16 27 -9l111 44q35 -27 75 -44l16 -117q2 -8 8 -13.5t14 -5.5h178q8 0 14 5.5t8 13.5l16 117q41 17 75 44l111 -44q17 -7 27 9l89 154q9 16 -6 28zM511.5 229q-64.5 0 -109.5 45.5t-45 109.5t45 109.5t109.5 45.5t110 -45.5t45.5 -109.5
+t-45.5 -109.5t-110 -45.5z" />
+    <glyph glyph-name="down" unicode="&#xe616;" 
+d="M846 593l3 -2q4 3 9 3q8 0 13.5 -6t5.5 -14q0 -5 -3 -10l3 -2l-353 -358l-3 3q-4 -3 -9 -3t-10 3l-2 -3l-353 358l2 2q-3 5 -3 10q0 8 6 14t14 6q4 0 9 -3l3 2l334 -338zM846 593z" />
+    <glyph glyph-name="password" unicode="&#xe6b1;" 
+d="M504.5 157q-37.5 0 -64 26.5t-26.5 64.5t26.5 65t64 27t64.5 -27t27 -65t-27 -64.5t-64.5 -26.5zM504.5 288q-16.5 0 -28 -11.5t-11.5 -28t12 -28.5t28 -12t27.5 12t11.5 28.5t-11.5 28t-28 11.5zM767 466h-27v51q0 101 -68 172q-69 72 -166 72t-166 -72
+q-69 -71 -69 -172v-51h-29q-21 0 -36.5 -15t-15.5 -37v-337q0 -22 15.5 -37t36.5 -15h525q22 0 37 15t15 37v337q0 22 -15 37t-37 15zM323 517q0 80 54 136t129 56t129 -56t54 -136v-51h-366v51zM768 77v0l-1 -1v0h-525v0v0v1v0v337v0v0v0h525v0v0h1v0v-337z" />
+    <glyph glyph-name="account-star" unicode="&#xe60b;" 
+d="M640 299q-45 0 -101.5 -11t-111.5 -31.5t-91.5 -54.5t-36.5 -74v-85h682v85q0 40 -36.5 74t-91.5 54.5t-111.5 31.5t-101.5 11zM640 384q71 0 121 50t50 120.5t-50 120.5t-121 50t-121 -50t-50 -120.5t50 -120.5t121 -50zM213 329l105 -63l-28 120l94 80l-123 11l-48 112
+l-48 -112l-122 -11l93 -80l-29 -120z" />
+    <glyph glyph-name="ic_person_px" unicode="&#xeb16;" 
+d="M512 384q71 0 121 50t50 120.5t-50 120.5t-121 50t-121 -50t-50 -120.5t50 -120.5t121 -50zM512 299q-45 0 -101.5 -11.5t-111.5 -31.5t-91.5 -54t-36.5 -74v-85h682v85q0 40 -36.5 74t-91.5 54t-111.5 31.5t-101.5 11.5z" />
+    <glyph glyph-name="ic_store" unicode="&#xe930;" 
+d="M853 725h-682v-85h682v85zM896 299v85l-43 213h-682l-43 -213v-85h43v-256h426v256h171v-256h85v256h43zM512 128h-256v171h256v-171z" />
+    <glyph glyph-name="ic_equalizer" unicode="&#xe94b;" 
+d="M427 43h170v682h-170v-682zM171 43h170v341h-170v-341zM683 512v-469h170v469h-170z" />
+  </font>
+</defs></svg>
